@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Owner\projects\posh -BC:\Users\Owner\projects\posh\cmake-build-minsizerel
+  command = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" --regenerate-during-build -SC:\Users\Owner\projects\posh\src -BC:\Users\Owner\projects\posh\src\cmake-build-minsizerel
   description = Re-running CMake...
   generator = 1
 

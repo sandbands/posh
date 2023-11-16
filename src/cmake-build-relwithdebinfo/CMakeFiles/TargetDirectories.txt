@@ -1,3 +1,0 @@
-C:/Users/Owner/projects/posh/src/cmake-build-relwithdebinfo/CMakeFiles/posh.dir
-C:/Users/Owner/projects/posh/src/cmake-build-relwithdebinfo/CMakeFiles/edit_cache.dir
-C:/Users/Owner/projects/posh/src/cmake-build-relwithdebinfo/CMakeFiles/rebuild_cache.dir

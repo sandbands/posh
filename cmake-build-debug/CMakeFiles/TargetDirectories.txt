@@ -1,3 +1,3 @@
-C:/Users/Owner/projects/posh/cmake-build-debug/CMakeFiles/posh.dir
-C:/Users/Owner/projects/posh/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Owner/projects/posh/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/Owner/projects/posh/src/cmake-build-debug/CMakeFiles/posh.dir
+C:/Users/Owner/projects/posh/src/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Owner/projects/posh/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
