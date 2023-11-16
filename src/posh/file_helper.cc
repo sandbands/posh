@@ -387,15 +387,55 @@ namespace posh {
 	    return std::filesystem::remove_all(path);
 	}
 	
-//	// duplicate the file, returns the new file
-//    file_helper& file_helper::duplicate() {
-//
-//	}
-//
-//	// duplicate a file, returns the new file
-//    file_helper file_helper::duplicate(const std::string& path) {
-//
-//	}
+	// duplicate the file, returns the new file
+    file_helper file_helper::duplicate() {
+        std::string new_path = this->path;
+        std::string ext = std::filesystem::path(this->path).extension().string();
+
+        // get the length of file extension so that we know how much to trim off
+        int ext_length = ext.size();
+
+        // fill the new_path string with the contents of this->path, excluding the file extension
+        for (int i=0; i < this->path.size() - ext_length; i++)
+            new_path += this->path[i];
+
+        // check for other duplicates and increment the number
+        for (int i=1; ;i++) {
+            if (std::filesystem::exists( (new_path + "-" + std::to_string(i)) ))
+                continue;
+            else {
+                new_path += ("-" + std::to_string(i) + ext);
+                break;
+            }
+        }
+
+        return file_helper(new_path);
+	}
+
+	// duplicate a file, returns the new file
+    file_helper file_helper::duplicate(const std::string& path) {
+        std::string new_path = path;
+        std::string ext = std::filesystem::path(path).extension().string();
+
+        // get the length of file extension so that we know how much to trim off
+        int ext_length = ext.size();
+
+        // fill the new_path string with the contents of path, excluding the file extension
+        for (int i=0; i < path.size() - ext_length; i++)
+            new_path += path[i];
+
+        // check for other duplicates and increment the number
+        for (int i=1; ;i++) {
+            if (std::filesystem::exists( (new_path + "-" + std::to_string(i)) ))
+                continue;
+            else {
+                new_path += ("-" + std::to_string(i) + ext);
+                break;
+            }
+        }
+
+        return file_helper(new_path);
+	}
 	
 	// duplicate the file to another location, returns the new file
     file_helper& file_helper::duplicate_to(const std::string& path2) {

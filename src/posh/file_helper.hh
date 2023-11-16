@@ -118,11 +118,11 @@ namespace posh {
 		// remove a directory
 		static const bool rmdir(const std::string& path);
 		
-//		// duplicate the file, returns the new file
-//		file_helper& duplicate();
-//
-//		// duplicate a file, returns the new file
-//		static file_helper duplicate(const std::string& path);
+		// duplicate the file, returns the new file
+		file_helper duplicate();
+
+		// duplicate a file, returns the new file
+		static file_helper duplicate(const std::string& path);
 		
 		// duplicate the file to another location, returns the new file
 		file_helper& duplicate_to(const std::string& path2);
