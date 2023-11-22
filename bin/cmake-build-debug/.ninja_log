@@ -1,0 +1,10 @@
+# ninja log v5
+13	151	7219490167180876	CMakeFiles/posh.dir/posh/ios/ostream.cc.obj	68ace1a66158df30
+21	155	7219490167170878	CMakeFiles/posh.dir/posh/command_engine.cc.obj	5cc048b49168850e
+9	163	7219490167282227	CMakeFiles/posh.dir/posh/ios/istream.cc.obj	fd7dc010dda1017a
+3	611	7219490426650451	CMakeFiles/posh.dir/posh.cc.obj	d50e7fb45d48ea59
+1	2610	7219490191727676	CMakeFiles/posh.dir/posh/file_helper.cc.obj	bced369d8b55967
+612	765	7219490428150551	posh.exe	b1aad536deca7f90
+10	78	7223863201813249	CMakeFiles/posh.dir/posh/command_engine.cc.obj	5cc048b49168850e
+5	659	7223863207623809	CMakeFiles/posh.dir/posh.cc.obj	d50e7fb45d48ea59
+660	846	7223863209456714	posh.exe	b1aad536deca7f90
