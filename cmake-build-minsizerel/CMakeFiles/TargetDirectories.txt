@@ -1,3 +1,0 @@
-C:/Users/Owner/projects/posh/src/cmake-build-minsizerel/CMakeFiles/posh.dir
-C:/Users/Owner/projects/posh/src/cmake-build-minsizerel/CMakeFiles/edit_cache.dir
-C:/Users/Owner/projects/posh/src/cmake-build-minsizerel/CMakeFiles/rebuild_cache.dir

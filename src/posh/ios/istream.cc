@@ -4,7 +4,7 @@
 
 #include "istream.hh"
 
-namespace posh {
-    namespace ios {
+
+    namespace posh::ios {
     } // posh
-} // ios
+// ios

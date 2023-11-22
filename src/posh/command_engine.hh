@@ -9,7 +9,7 @@ namespace posh {
 
     class command_engine {
 
-    };
+    } cmd_eng;
 
 } // posh
 
