@@ -79,6 +79,12 @@ build CMakeFiles/posh.dir/posh/command_engine.cc.obj: CXX_COMPILER__posh_unscann
   OBJECT_DIR = CMakeFiles\posh.dir
   OBJECT_FILE_DIR = CMakeFiles\posh.dir\posh
 
+build CMakeFiles/posh.dir/posh/utils.cc.obj: CXX_COMPILER__posh_unscanned_Debug C$:/Users/Owner/projects/posh/src/posh/utils.cc || cmake_object_order_depends_target_posh
+  DEP_FILE = CMakeFiles\posh.dir\posh\utils.cc.obj.d
+  FLAGS = -g -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\posh.dir
+  OBJECT_FILE_DIR = CMakeFiles\posh.dir\posh
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target posh
@@ -87,7 +93,7 @@ build CMakeFiles/posh.dir/posh/command_engine.cc.obj: CXX_COMPILER__posh_unscann
 #############################################
 # Link the executable posh.exe
 
-build posh.exe: CXX_EXECUTABLE_LINKER__posh_Debug CMakeFiles/posh.dir/posh.cc.obj CMakeFiles/posh.dir/posh/file_helper.cc.obj CMakeFiles/posh.dir/posh/ios/ostream.cc.obj CMakeFiles/posh.dir/posh/ios/istream.cc.obj CMakeFiles/posh.dir/posh/command_engine.cc.obj
+build posh.exe: CXX_EXECUTABLE_LINKER__posh_Debug CMakeFiles/posh.dir/posh.cc.obj CMakeFiles/posh.dir/posh/file_helper.cc.obj CMakeFiles/posh.dir/posh/ios/ostream.cc.obj CMakeFiles/posh.dir/posh/ios/istream.cc.obj CMakeFiles/posh.dir/posh/command_engine.cc.obj CMakeFiles/posh.dir/posh/utils.cc.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\posh.dir

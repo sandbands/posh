@@ -13,4 +13,6 @@ add_executable(posh posh.cc
         posh/command_engine.cc
         posh/command_engine.hh
         posh.hh
+        posh/utils.cc
+        posh/utils.hh
 )

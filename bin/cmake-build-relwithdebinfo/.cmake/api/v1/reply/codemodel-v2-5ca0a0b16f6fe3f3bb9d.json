@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.26"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Release",
+			"name" : "RelWithDebInfo",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "posh::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-posh-Release-7a7050d4059cae1a9ae2.json",
+					"jsonFile" : "target-posh-RelWithDebInfo-c7a9aded8000e94b4725.json",
 					"name" : "posh",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Owner/projects/posh/src/cmake-build-release",
+		"build" : "C:/Users/Owner/projects/posh/bin/cmake-build-relwithdebinfo",
 		"source" : "C:/Users/Owner/projects/posh/src"
 	},
 	"version" : 

@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.26"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "MinSizeRel",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "posh::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-posh-Debug-af69d39aa7e891ecaebb.json",
+					"jsonFile" : "target-posh-MinSizeRel-7d294d72e6c6aeea6d86.json",
 					"name" : "posh",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Owner/projects/posh/bin/cmake-build-debug",
+		"build" : "C:/Users/Owner/projects/posh/bin/cmake-build-minsizerel",
 		"source" : "C:/Users/Owner/projects/posh/src"
 	},
 	"version" : 

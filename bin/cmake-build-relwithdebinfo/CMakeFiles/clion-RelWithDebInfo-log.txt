@@ -1,3 +1,4 @@
 "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=RelWithDebInfo "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -S C:\Users\Owner\projects\posh\src -B C:\Users\Owner\projects\posh\bin\cmake-build-relwithdebinfo
-CMake Error: The current CMakeCache.txt directory C:/Users/Owner/projects/posh/bin/cmake-build-relwithdebinfo/CMakeCache.txt is different than the directory c:/Users/Owner/projects/posh/src/cmake-build-relwithdebinfo where CMakeCache.txt was created. This may result in binaries being created in the wrong place. If you are not sure, reedit the CMakeCache.txt
--- Configuring incomplete, errors occurred!
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: C:/Users/Owner/projects/posh/bin/cmake-build-relwithdebinfo

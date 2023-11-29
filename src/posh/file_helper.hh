@@ -26,7 +26,7 @@ namespace posh {
 		
 		public:
 		// constructor
-		file_helper(const std::string& path);
+		explicit file_helper(std::string  path);
 		
 		// get path
 		const std::string& get_path();
@@ -35,10 +35,10 @@ namespace posh {
 		const std::string& set_path(const std::string& new_path);
 		
 		// check if the file exists already, returns false if it does not or if it is a directory
-		const bool exists();
+        bool exists();
 		
 		// check if a file exists already, returns false if it does not or if it is a directory
-		static const bool exists(const std::string& path);
+		static bool exists(const std::string& path);
 		
 		// create the file
 		file_helper& create();
@@ -47,34 +47,34 @@ namespace posh {
 		static file_helper create(const std::string& path);
 		
 		// delete the file
-		const bool remove();
+        bool remove();
 		
 		// delete a file
-		static const bool remove(const std::string& path);
+		static bool remove(const std::string& path);
 		
 		// read the file and get all the content inside one string
-		const std::string read();
+		std::string read();
 		
 		// read a file and get all the content inside one string
-		static const std::string read(const std::string& path);
+		static std::string read(const std::string& path);
 		
 		// read the file and return a vector of its lines
-		const std::vector<std::string> read_all();
+		std::vector<std::string> read_all();
 		
 		// read a file and return a vector of its lines
-		static const std::vector<std::string> read_all(const std::string& path);
+		static std::vector<std::string> read_all(const std::string& path);
 		
 		// read the file and return a vector of specific lines
-		const std::vector<std::string> read_lines(const std::vector<int>& lines);
+		std::vector<std::string> read_lines(const std::vector<int>& lines);
 		
 		// read a file and return a vector of specific lines
-		static const std::vector<std::string> read_lines(const std::string& path, const std::vector<int>& lines);
+		static std::vector<std::string> read_lines(const std::string& path, const std::vector<int>& lines);
 		
 		// read the file and return a specific line
-		const std::string read_line(const int& line);
+		std::string read_line(const int& line);
 		
 		// read a file and return a specific line
-		static const std::string read_line(const std::string& path, const int& line);
+		static std::string read_line(const std::string& path, const int& line);
 		
 		// erase the file contents
 		file_helper& erase();
@@ -101,22 +101,22 @@ namespace posh {
 		file_helper& operator << (const std::vector<std::string>& lines);
 		
 		// check if the file is currently open
-		const bool is_open();
+        bool is_open();
 
 		// check if a file is currently open
-		static const bool is_open(const std::string& path);
+		static bool is_open(const std::string& path);
 		
 		// get the file's size
-		const int size();
+		int size();
 		
 		// get a file's size
-		static const int size(const std::string& path);
+		static int size(const std::string& path);
 		
 		// create a directory
-		static const bool mkdir(const std::string& path);
+		static bool mkdir(const std::string& path);
 		
 		// remove a directory
-		static const bool rmdir(const std::string& path);
+		static bool rmdir(const std::string& path);
 		
 		// duplicate the file, returns the new file
 		file_helper duplicate();
@@ -131,7 +131,7 @@ namespace posh {
 		static file_helper duplicate_to(const std::string& path1, const std::string& path2);
 		
 		// move the file to a new location
-		file_helper& move_to(const std::string& path);
+		file_helper& move_to(const std::string& newPath);
 		
 		// move a file to a new location
 		static file_helper move_to(const std::string& path1, const std::string& path2);

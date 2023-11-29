@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.26"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "MinSizeRel",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "posh::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-posh-MinSizeRel-516f531a1d0787ea0db9.json",
+					"jsonFile" : "target-posh-Release-674ca445566ddff84315.json",
 					"name" : "posh",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Owner/projects/posh/src/cmake-build-minsizerel",
+		"build" : "C:/Users/Owner/projects/posh/bin/cmake-build-release",
 		"source" : "C:/Users/Owner/projects/posh/src"
 	},
 	"version" : 

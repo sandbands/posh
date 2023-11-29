@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Owner/projects/posh/src/cmake-build-minsizerel"
+			"value" : "c:/Users/Owner/projects/posh/bin/cmake-build-minsizerel"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Owner/projects/posh/src/cmake-build-minsizerel/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Owner/projects/posh/bin/cmake-build-minsizerel/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -1275,7 +1275,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Owner/projects/posh/src/cmake-build-minsizerel"
+			"value" : "C:/Users/Owner/projects/posh/bin/cmake-build-minsizerel"
 		},
 		{
 			"name" : "posh_IS_TOP_LEVEL",

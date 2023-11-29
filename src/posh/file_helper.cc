@@ -5,8 +5,8 @@
 #include <fstream>
 #include <filesystem>
 #include <string>
+#include <utility>
 #include <vector>
-#include <cstdlib>
 #include <cstdio>
 #include <bits/stdc++.h>
 #include "file_helper.hh"
@@ -17,7 +17,7 @@ namespace posh {
 	 */
 
 	// file helper constructor
-	file_helper::file_helper(const std::string& path) : path(path) {}
+	file_helper::file_helper(std::string path) : path(std::move(path)) {}
 	
 	// get path
 	const std::string& file_helper::get_path() {
@@ -31,12 +31,12 @@ namespace posh {
 	}
 	
 	// check if the file exists already, returns false if it does not or if it is a directory
-	const bool file_helper::exists() {
+    bool file_helper::exists() {
 		return std::filesystem::exists(this->path) && !(std::filesystem::is_directory(this->path));
 	}
 	
 	// check if a file exists already, returns false if it does not or if it is a directory
-	const bool file_helper::exists(const std::string& path) {
+    bool file_helper::exists(const std::string& path) {
 		return std::filesystem::exists(path) && !(std::filesystem::is_directory(path));
 	}
 	
@@ -57,17 +57,17 @@ namespace posh {
 	}
 	
 	// delete the file
-	const bool file_helper::remove() {
+    bool file_helper::remove() {
 		return std::filesystem::remove(this->path);
 	}
 	
 	// delete a file
-	const bool file_helper::remove(const std::string& path) {
+    bool file_helper::remove(const std::string& path) {
 		return std::filesystem::remove(path);
 	}
 	
 	// read the file and get all the content inside one string
-	const std::string file_helper::read() {
+	std::string file_helper::read() {
 	    std::vector<std::string> lines = file_helper::read_all();
         std::string content;
 
@@ -87,7 +87,7 @@ namespace posh {
 	}
 	
 	// read a file and get all the content inside one string
-	const std::string file_helper::read(const std::string& path) {
+	std::string file_helper::read(const std::string& path) {
         std::vector<std::string> lines = file_helper::read_all(path);
         std::string content;
 
@@ -107,7 +107,7 @@ namespace posh {
 	}
 	
 	// read the file and return a vector of its lines
-	const std::vector<std::string> file_helper::read_all() {
+	std::vector<std::string> file_helper::read_all() {
 	    std::vector<std::string> content;
 
         std::fstream file;
@@ -122,7 +122,7 @@ namespace posh {
 	}
 	
 	// read a file and return a vector of its lines
-	const std::vector<std::string> file_helper::read_all(const std::string& path) {
+	std::vector<std::string> file_helper::read_all(const std::string& path) {
         std::vector<std::string> content;
 
         std::fstream file;
@@ -137,7 +137,7 @@ namespace posh {
 	}
 	
 	// read the file and return a vector of specific lines
-	const std::vector<std::string> file_helper::read_lines(const std::vector<int>& lines) {
+	std::vector<std::string> file_helper::read_lines(const std::vector<int>& lines) {
         std::vector<std::string> result, all_lines;
         all_lines = this->read_all();
 
@@ -152,7 +152,7 @@ namespace posh {
 	}
 	
 	// read a file and return a vector of specific lines
-	const std::vector<std::string> file_helper::read_lines(const std::string& path, const std::vector<int>& lines) {
+	std::vector<std::string> file_helper::read_lines(const std::string& path, const std::vector<int>& lines) {
         std::vector<std::string> result, all_lines;
         all_lines = file_helper::read_all(path);
 
@@ -167,7 +167,7 @@ namespace posh {
 	}
 	
 	// read the file and return a specific line
-	const std::string file_helper::read_line(const int& line) {
+	std::string file_helper::read_line(const int& line) {
         std::vector<std::string> lines;
         lines = this->read_all(this->path);
 
@@ -180,7 +180,7 @@ namespace posh {
 	}
 	
 	// read a file and return a specific line
-	const std::string file_helper::read_line(const std::string& path, const int& line) {
+	std::string file_helper::read_line(const std::string& path, const int& line) {
         std::vector<std::string> lines;
         lines = file_helper::read_all(path);
 
@@ -195,7 +195,7 @@ namespace posh {
 	// erase the file contents
     file_helper& file_helper::erase() {
 	    std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::trunc);
+        file.open(this->path, std::ios::out | std::ios::trunc); // open in trunc mode
         file.close();
         return *this;
 	}
@@ -203,7 +203,7 @@ namespace posh {
 	// erase a file's contents
     file_helper file_helper::erase(const std::string& path) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::trunc);
+        file.open(path, std::ios::out | std::ios::trunc); // open in trunc mode
         file.close();
         return file_helper(path);
 	}
@@ -211,7 +211,7 @@ namespace posh {
 	// write a line to the file
 	file_helper& file_helper::write(const std::string& line) {
 	    std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
 
         // if it's the first line, then don't add a newline character
         if (this->read_all().empty()) {
@@ -230,7 +230,7 @@ namespace posh {
 	// write a line to a file
 	file_helper file_helper::write(const std::string& path, const std::string& line) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::app);
+        file.open(path, std::ios::out | std::ios::app); // open in append mode
 
         // if it's the first line, then don't add a newline character
         if (file_helper::read_all(path).empty()) {
@@ -249,7 +249,7 @@ namespace posh {
 	// write a line to the file, using the insertion operator
     file_helper& file_helper::operator << (const std::string& line) {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
 
         // if it's the first line, then don't add a newline character
         if (this->read_all().empty()) {
@@ -268,7 +268,7 @@ namespace posh {
 	// write lines to the file
     file_helper& file_helper::write(const std::vector<std::string>& lines) {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
 
         if (lines.empty()) {
             // if it's the first line, then don't add a newline character
@@ -298,7 +298,7 @@ namespace posh {
 	// write lines to a file
     file_helper file_helper::write(const std::string& path, const std::vector<std::string>& lines) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::app);
+        file.open(path, std::ios::out | std::ios::app); // open in append mode
 
         if (lines.empty()) {
             // if it's the first line, then don't add a newline character
@@ -328,7 +328,7 @@ namespace posh {
 	// write lines to the file, using the insertion operator
     file_helper& file_helper::operator << (const std::vector<std::string>& lines) {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
 
         if (lines.empty()) {
             // if it's the first line, then don't add a newline character
@@ -356,34 +356,34 @@ namespace posh {
     }
 	
 	// check if the file is currently open
-	const bool file_helper::is_open() {
+	bool file_helper::is_open() {
         std::fstream file(this->path);
         return file.is_open();
 	}
 
 	// check if a file is currently open
-	const bool file_helper::is_open(const std::string& path) {
+	bool file_helper::is_open(const std::string& path) {
         std::fstream file(path);
         return file.is_open();
 	}
 	
 	// get the file's size
-	const int file_helper::size() {
-	    return std::filesystem::file_size(this->path);
+    int file_helper::size() {
+	    return (int)std::filesystem::file_size(this->path);
 	}
 	
 	// get a file's size
-	const int file_helper::size(const std::string& path) {
-        return std::filesystem::file_size(path);
+	int file_helper::size(const std::string& path) {
+        return (int)std::filesystem::file_size(path);
 	}
 	
 	// create a directory
-	const bool file_helper::mkdir(const std::string& path) {
+    bool file_helper::mkdir(const std::string& path) {
 	    std::filesystem::create_directory(path);
 	}
 	
 	// remove a directory
-	const bool file_helper::rmdir(const std::string& path) {
+	bool file_helper::rmdir(const std::string& path) {
 	    return std::filesystem::remove_all(path);
 	}
 	
@@ -393,7 +393,7 @@ namespace posh {
         std::string ext = std::filesystem::path(this->path).extension().string();
 
         // get the length of file extension so that we know how much to trim off
-        int ext_length = ext.size();
+        int ext_length = (int)ext.size();
 
         // fill the new_path string with the contents of this->path, excluding the file extension
         for (int i=0; i < this->path.size() - ext_length; i++)
@@ -418,7 +418,7 @@ namespace posh {
         std::string ext = std::filesystem::path(path).extension().string();
 
         // get the length of file extension so that we know how much to trim off
-        int ext_length = ext.size();
+        int ext_length = (int)ext.size();
 
         // fill the new_path string with the contents of path, excluding the file extension
         for (int i=0; i < path.size() - ext_length; i++)
@@ -450,10 +450,10 @@ namespace posh {
 	}
 	
 	// move the file to a new location
-    file_helper& file_helper::move_to(const std::string& path) {
-	    this->duplicate_to(path);
+    file_helper& file_helper::move_to(const std::string& new_path) {
+	    this->duplicate_to(new_path);
         this->remove();
-        this->set_path(path);
+        this->set_path(new_path);
         return *this;
 	}
 	
@@ -513,18 +513,18 @@ namespace posh {
 
     // get the amount of lines the file has
     int file_helper::lines() {
-        return file_helper::read_all().size();
+        return (int)file_helper::read_all().size();
     }
 
     // get the amount of lines a file has
     int file_helper::lines(const std::string& path) {
-        return file_helper::read_all(path).size();
+        return (int)file_helper::read_all(path).size();
     }
 
     // append content to the last line of the file
     file_helper& file_helper::append(const std::string& content) {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
         file << content;
         file.close();
         return *this;
@@ -533,7 +533,7 @@ namespace posh {
     // append content to the last line of a file
     file_helper file_helper::append(const std::string& path, const std::string& content) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::app);
+        file.open(path, std::ios::out | std::ios::app); // open in append mode
         file << content;
         file.close();
         return file_helper(path);
@@ -542,7 +542,7 @@ namespace posh {
     // append content to the last line of the file
     file_helper& file_helper::operator += (const std::string& content) {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
         file << content;
         file.close();
         return *this;
@@ -551,7 +551,7 @@ namespace posh {
     // end line
     file_helper& file_helper::endl() {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
         file << std::endl;
         file.close();
         return *this;
@@ -560,7 +560,7 @@ namespace posh {
     // flush
     file_helper& file_helper::flush() {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::app);
+        file.open(this->path, std::ios::out | std::ios::app); // open in append mode
         file.flush();
         file.close();
         return *this;
@@ -569,7 +569,7 @@ namespace posh {
     // end line
     file_helper file_helper::endl(const std::string& path) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::app);
+        file.open(path, std::ios::out | std::ios::app); // open in append mode
         file << std::endl;
         file.close();
         return file_helper(path);
@@ -578,7 +578,7 @@ namespace posh {
     // flush the file
     file_helper file_helper::flush(const std::string& path) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::app);
+        file.open(path, std::ios::out | std::ios::app); // open in append mode
         file.flush();
         file.close();
         return file_helper(path);
@@ -587,7 +587,7 @@ namespace posh {
     // truncate the file
     file_helper& file_helper::trunc() {
         std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::trunc);
+        file.open(this->path, std::ios::out | std::ios::trunc); // open in truncate mode
         file.close();
         return *this;
     }
@@ -595,7 +595,7 @@ namespace posh {
     // truncate a file
     file_helper file_helper::trunc(const std::string& path) {
         std::fstream file;
-        file.open(path, std::ios::out | std::ios::trunc);
+        file.open(path, std::ios::out | std::ios::trunc); // open in truncate mode
         file.close();
         return file_helper(path);
     }

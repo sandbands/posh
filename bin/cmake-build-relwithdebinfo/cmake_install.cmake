@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Owner/projects/posh/src/cmake-build-relwithdebinfo/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Owner/projects/posh/bin/cmake-build-relwithdebinfo/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
