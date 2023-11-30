@@ -8,9 +8,7 @@
 
 
 int main() {
-    posh::file_helper file("./testfile.txt");
-    file.trunc();
-    file.write("hello").write("world").append("!").flush().write("\t\t\t\t\t\t").flush().write("test");
-
+    std::cout << "hello world" << std::endl;
+    return 0;
 }
 

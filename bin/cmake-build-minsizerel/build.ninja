@@ -85,6 +85,12 @@ build CMakeFiles/posh.dir/posh/utils.cc.obj: CXX_COMPILER__posh_unscanned_MinSiz
   OBJECT_DIR = CMakeFiles\posh.dir
   OBJECT_FILE_DIR = CMakeFiles\posh.dir\posh
 
+build CMakeFiles/posh.dir/posh/errors.cc.obj: CXX_COMPILER__posh_unscanned_MinSizeRel C$:/Users/Owner/projects/posh/src/posh/errors.cc || cmake_object_order_depends_target_posh
+  DEP_FILE = CMakeFiles\posh.dir\posh\errors.cc.obj.d
+  FLAGS = -Os -DNDEBUG -std=gnu++23 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\posh.dir
+  OBJECT_FILE_DIR = CMakeFiles\posh.dir\posh
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target posh
@@ -93,7 +99,7 @@ build CMakeFiles/posh.dir/posh/utils.cc.obj: CXX_COMPILER__posh_unscanned_MinSiz
 #############################################
 # Link the executable posh.exe
 
-build posh.exe: CXX_EXECUTABLE_LINKER__posh_MinSizeRel CMakeFiles/posh.dir/posh.cc.obj CMakeFiles/posh.dir/posh/file_helper.cc.obj CMakeFiles/posh.dir/posh/ios/ostream.cc.obj CMakeFiles/posh.dir/posh/ios/istream.cc.obj CMakeFiles/posh.dir/posh/command_engine.cc.obj CMakeFiles/posh.dir/posh/utils.cc.obj
+build posh.exe: CXX_EXECUTABLE_LINKER__posh_MinSizeRel CMakeFiles/posh.dir/posh.cc.obj CMakeFiles/posh.dir/posh/file_helper.cc.obj CMakeFiles/posh.dir/posh/ios/ostream.cc.obj CMakeFiles/posh.dir/posh/ios/istream.cc.obj CMakeFiles/posh.dir/posh/command_engine.cc.obj CMakeFiles/posh.dir/posh/utils.cc.obj CMakeFiles/posh.dir/posh/errors.cc.obj
   FLAGS = -Os -DNDEBUG
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\posh.dir

@@ -15,4 +15,6 @@ add_executable(posh posh.cc
         posh.hh
         posh/utils.cc
         posh/utils.hh
+        posh/errors.cc
+        posh/errors.hh
 )
