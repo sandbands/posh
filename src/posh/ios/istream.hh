@@ -5,14 +5,13 @@
 #ifndef POSH_ISTREAM_HH
 #define POSH_ISTREAM_HH
 
-namespace posh {
-    namespace ios {
 
-        class istream {
+namespace posh::ios {
 
-        };
+    class istream {
 
-    } // posh
-} // ios
+    };
+
+} // posh::ios
 
 #endif //POSH_ISTREAM_HH

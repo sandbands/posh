@@ -43,7 +43,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Debug"
+			"value" : "RelWithDebInfo"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Owner/projects/posh/bin/cmake-build-debug"
+			"value" : "c:/Users/Owner/Desktop/posh/bin/cmake-build-relwithdebinfo"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -575,7 +575,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Owner/projects/posh/bin/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Owner/Desktop/posh/bin/cmake-build-relwithdebinfo/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Owner/projects/posh/src"
+			"value" : "C:/Users/Owner/Desktop/posh/src"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1275,7 +1275,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Owner/projects/posh/bin/cmake-build-debug"
+			"value" : "C:/Users/Owner/Desktop/posh/bin/cmake-build-relwithdebinfo"
 		},
 		{
 			"name" : "posh_IS_TOP_LEVEL",
@@ -1299,7 +1299,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Owner/projects/posh/src"
+			"value" : "C:/Users/Owner/Desktop/posh/src"
 		}
 	],
 	"kind" : "cache",

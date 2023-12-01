@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Owner/projects/posh/bin/cmake-build-minsizerel",
-		"source" : "C:/Users/Owner/projects/posh/src"
+		"build" : "C:/Users/Owner/Desktop/posh/bin/cmake-build-minsizerel",
+		"source" : "C:/Users/Owner/Desktop/posh/src"
 	},
 	"version" : 
 	{

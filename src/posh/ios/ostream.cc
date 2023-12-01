@@ -4,7 +4,6 @@
 
 #include "ostream.hh"
 
-namespace posh {
-    namespace ios {
-    } // posh
-} // ios
+namespace posh::ios {
+
+} // posh::ios

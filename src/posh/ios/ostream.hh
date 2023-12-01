@@ -5,14 +5,12 @@
 #ifndef POSH_OSTREAM_HH
 #define POSH_OSTREAM_HH
 
-namespace posh {
-    namespace ios {
+namespace posh::ios {
 
-        class ostream {
+    class ostream {
 
-        };
+    };
 
-    } // posh
-} // ios
+} // posh::ios
 
 #endif //POSH_OSTREAM_HH
