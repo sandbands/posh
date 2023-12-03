@@ -1,0 +1,3 @@
+/home/itsrxmmy/posh/build/CMakeFiles/posh.dir
+/home/itsrxmmy/posh/build/CMakeFiles/edit_cache.dir
+/home/itsrxmmy/posh/build/CMakeFiles/rebuild_cache.dir

@@ -14,16 +14,17 @@ namespace posh {
     class error_base : public std::exception {
         std::string message;
         int err_code;
+
         public:
 
         // constructors
-        error_base(std::string message, const int& err_code);
+        error_base(std::string message, const int &err_code);
 
-        error_base(const char* message, const int& err_code);
+        error_base(const char *message, const int &err_code);
 
-        [[nodiscard]] const char* what() const noexcept override;
+        [[nodiscard]] const char *what() const noexcept override;
 
-        [[nodiscard]] const int& code() const;
+        [[nodiscard]] const int &code() const;
     };
 
     namespace errors {

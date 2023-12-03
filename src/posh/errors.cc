@@ -7,23 +7,23 @@
 namespace posh {
 
     // constructors
-    error_base::error_base(std::string message, const int& err_code) : message(std::move(message)), err_code(err_code) {
+    error_base::error_base(std::string message, const int &err_code) : message(std::move(message)), err_code(err_code) {
         // ensure punctuation
         if (this->message[this->message.size() - 1] != '.')
             this->message += std::to_string('.');
     }
 
-    error_base::error_base(const char* message, const int& err_code) : message(message), err_code(err_code) {
+    error_base::error_base(const char *message, const int &err_code) : message(message), err_code(err_code) {
         // ensure punctuation
         if (this->message[this->message.size() - 1] != '.')
             this->message += std::to_string('.');
     }
 
-    [[nodiscard]] const char* error_base::what() const noexcept {
+    [[nodiscard]] const char *error_base::what() const noexcept {
         return this->message.c_str();
     }
 
-    [[nodiscard]] const int& error_base::code() const {
+    [[nodiscard]] const int &error_base::code() const {
         return this->err_code;
     }
 

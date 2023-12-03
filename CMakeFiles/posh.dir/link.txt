@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/posh.dir/posh.cc.o CMakeFiles/posh.dir/posh/file_helper.cc.o CMakeFiles/posh.dir/posh/ios/ostream.cc.o CMakeFiles/posh.dir/posh/ios/istream.cc.o CMakeFiles/posh.dir/posh/command_engine.cc.o CMakeFiles/posh.dir/posh/utils.cc.o CMakeFiles/posh.dir/posh/errors.cc.o -o posh 

@@ -10,8 +10,8 @@
 namespace posh {
     // split a string by delimiter and return a vector of substrings
     // won't bother adding documentation here because I copied this code lol
-    std::vector <std::string> split_str(const std::string &_str, const std::string &_delim) {
-        std::vector <std::string> res;
+    std::vector<std::string> split_str(const std::string &_str, const std::string &_delim) {
+        std::vector<std::string> res;
         std::string token;
         for (int i = 0; i < _str.size(); i++) {
             bool flag = true;
@@ -33,20 +33,21 @@ namespace posh {
     }
 
     // turn a vector into a string
-    std::string vec_to_str(std::vector <std::string> vec) {
+    std::string vec_to_str(const std::vector<std::string> &vec) {
         std::string result;
         if (!vec.empty()) { // make sure the vector isn't empty
             if (vec.size() > 1) { // check if it has more than 1 element
                 for (int i = 0; i < vec.size(); i++) {
                     if (i == vec.size() - 1) // if it's the last element, end with a closing bracket instead of ", "
-                        result += vec[i] += "}";
+                        result += vec[i] + "}";
                     else if (i == 0)
-                        result += std::string("{") += vec[i] += ", "; // if it's the first element, start with a starting bracket and end with ", "
+                        result += std::string("{") + vec[i] +
+                                  ", "; // if it's the first element, start with a starting bracket and end with ", "
                     else
-                        result += vec[i] += ", "; // for every other item, end with ", "
+                        result += vec[i] + ", "; // for every other item, end with ", "
                 }
             } else { // if there is only one element, place it in between a pair of brackets
-                result += std::string("{") += vec[0] += "}";
+                result += std::string("{") + vec[0] + "}";
             }
         } else { // if it's empty, return an empty pair of brackets
             result += "{}";
@@ -56,7 +57,7 @@ namespace posh {
     }
 
     // print a vector
-    void print_vec(std::vector <std::string> vec) {
+    void print_vec(const std::vector<std::string> &vec) {
         if (!vec.empty()) {
             if (vec.size() > 1) {
                 for (int i = 0; i < vec.size(); i++) {

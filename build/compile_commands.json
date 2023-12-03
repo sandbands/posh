@@ -1,0 +1,44 @@
+[
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh.cc.o -c /home/itsrxmmy/posh/src/posh.cc",
+  "file": "/home/itsrxmmy/posh/src/posh.cc",
+  "output": "CMakeFiles/posh.dir/posh.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/file_helper.cc.o -c /home/itsrxmmy/posh/src/posh/file_helper.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/file_helper.cc",
+  "output": "CMakeFiles/posh.dir/posh/file_helper.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/ios/ostream.cc.o -c /home/itsrxmmy/posh/src/posh/ios/ostream.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/ios/ostream.cc",
+  "output": "CMakeFiles/posh.dir/posh/ios/ostream.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/ios/istream.cc.o -c /home/itsrxmmy/posh/src/posh/ios/istream.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/ios/istream.cc",
+  "output": "CMakeFiles/posh.dir/posh/ios/istream.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/command_engine.cc.o -c /home/itsrxmmy/posh/src/posh/command_engine.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/command_engine.cc",
+  "output": "CMakeFiles/posh.dir/posh/command_engine.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/utils.cc.o -c /home/itsrxmmy/posh/src/posh/utils.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/utils.cc",
+  "output": "CMakeFiles/posh.dir/posh/utils.cc.o"
+},
+{
+  "directory": "/home/itsrxmmy/posh/build",
+  "command": "/usr/bin/c++ -g -std=gnu++23 -o CMakeFiles/posh.dir/posh/errors.cc.o -c /home/itsrxmmy/posh/src/posh/errors.cc",
+  "file": "/home/itsrxmmy/posh/src/posh/errors.cc",
+  "output": "CMakeFiles/posh.dir/posh/errors.cc.o"
+}
+]
