@@ -6,8 +6,8 @@
 
 namespace posh {
     // Thrown when a process, operation, or function, is terminated early
-    const char* EarlyTerminationException::what() const noexcept {
-        return "Process/Operation Terminated Early.";
+    const char* early_termination_exception::what() const noexcept {
+        return "\n\t--> posh::*::early_termination_exception: Process/Operation Terminated Early.\n";
     }
 
     /* // CharTypes

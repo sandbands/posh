@@ -17,7 +17,7 @@
 
 namespace posh {
     // Thrown when a process, operation, or function, is terminated early
-    class EarlyTerminationException : public std::exception {
+    class early_termination_exception : public std::exception {
     public:
         [[nodiscard]] const char* what() const noexcept override;
     };

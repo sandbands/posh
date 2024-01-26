@@ -5,10 +5,8 @@
 #ifndef POSH_FILE_HELPER_HH
 #define POSH_FILE_HELPER_HH
 
-#include <fstream>
 #include <string>
 #include <vector>
-#include <iostream>
 
 
 namespace posh {
@@ -191,7 +189,20 @@ namespace posh {
 
         // truncate a file
         static file_helper trunc(const std::string &path);
+
+			// General Unknown file_helper Exceptions
+		class unknown_exception : public std::exception {
+			[[nodiscard]] const char* what() const noexcept override;
+		};
+
+		// Thrown when a path is not found
+		class path_not_found_exception : public std::exception {
+			[[nodiscard]] const char* what() const noexcept override;
+		};
     };
+
+
+
 
 } // posh
 

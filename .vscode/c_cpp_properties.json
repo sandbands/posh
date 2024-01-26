@@ -3,7 +3,8 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/src/**"
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/src/posh/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/clang++",

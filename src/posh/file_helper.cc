@@ -143,7 +143,7 @@ namespace posh {
 
         for (int i = 0; i < (int) all_lines.size(); i++) {
             for (int j = 0; j < (int) lines.size(); j++) {
-                if (i == j)
+                if (i == lines[j+1])
                     result.push_back(all_lines[i]);
             }
         }
@@ -158,7 +158,7 @@ namespace posh {
 
         for (int i = 0; i < (int) all_lines.size(); i++) {
             for (int j = 0; j < (int) lines.size(); j++) {
-                if (i == j)
+                if (i == lines[j+1])
                     result.push_back(all_lines[i]);
             }
         }
@@ -172,7 +172,7 @@ namespace posh {
         lines = posh::file_helper::read_all(this->path);
 
         for (int i = 0; i < (int) lines.size(); i++) {
-            if (i == line)
+            if (i == line-1)
                 return lines[line];
         }
 
@@ -185,7 +185,7 @@ namespace posh {
         lines = file_helper::read_all(path);
 
         for (int i = 0; i < (int) lines.size(); i++) {
-            if (i == line)
+            if (i == line-1)
                 return lines[line];
         }
 
@@ -193,20 +193,30 @@ namespace posh {
     }
 
     // erase the file contents
-    file_helper &file_helper::erase() {
-        std::fstream file;
-        file.open(this->path, std::ios::out | std::ios::trunc); // open in trunc mode
-        file.close();
-        return *this;
-    }
+	file_helper &file_helper::erase() {
+		std::filesystem::path file_path(this->path);
+		if (!std::filesystem::exists(file_path) || std::filesystem::is_directory(file_path)) {
+			// Handle the error, throw an exception, or return an appropriate value.
+		}
 
-    // erase a file's contents
-    file_helper file_helper::erase(const std::string &path) {
-        std::fstream file;
-        file.open(path, std::ios::out | std::ios::trunc); // open in trunc mode
-        file.close();
-        return file_helper(path);
-    }
+		std::fstream file;
+		file.open(file_path, std::ios::out | std::ios::trunc); // open in trunc mode
+		file.close();
+		return *this;
+	}
+
+	// erase a file's contents
+	file_helper file_helper::erase(const std::string &path) {
+		std::filesystem::path file_path(path);
+		if (!std::filesystem::exists(file_path) || std::filesystem::is_directory(file_path)) {
+			// Handle the error, throw an exception, or return an appropriate value.
+		}
+
+		std::fstream file;
+		file.open(file_path, std::ios::out | std::ios::trunc); // open in trunc mode
+		file.close();
+		return file_helper(file_path);
+	}
 
     // write a line to the file
     file_helper &file_helper::write(const std::string &line) {
@@ -598,6 +608,17 @@ namespace posh {
         file.open(path, std::ios::out | std::ios::trunc); // open in truncate mode
         file.close();
         return file_helper(path);
+    }
+
+
+	// General Unknown file_helper Exceptions
+    const char* file_helper::unknown_exception::what() const noexcept {
+        return "\n\t--> file_helper::unknown_exception: An Unknown Exception Occurred.\n";
+    }
+
+	// Thrown when a path is not found
+    const char* file_helper::path_not_found_exception::what() const noexcept {
+        return "\n\t--> file_helper::path_not_found_exception: Path(s) Could Not Be Found Or Recognized.\n";
     }
 }
 
