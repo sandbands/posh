@@ -2,30 +2,148 @@
 // Created by Owner on 11/28/2023.
 //
 
-#include "utils.hh"
 #include <vector>
 #include <string>
 #include <iostream>
+#include "utils.hh"
+#include "posh.hh"
 
 namespace posh {
+    // clear the screen
+    static void cls() {
+        std::system("clear");
+    }
+
+    // iterate through each element within substr and check if str begins with it
+    static bool starts_with_any_of(const std::string& str, const std::string& substr) {
+        for (char c : substr) {
+            if (str.starts_with(std::to_string(c))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // check if a string starts with a given substring
+    static bool starts_with(const std::string& str, const std::string& substr) {
+        return str.starts_with(substr);
+    }
+
+    /*
+     * Purpose: check if a string starts with a given character type within the first X characters of 'str'
+     *
+     * Parameters:
+     *      - const std::string& str:
+     *          - The std::string Operand
+     *      - const CharType& chartype:
+     *          = CT_ALPHA      : Letters (abcdefghijklmnopqrstuvwxyzABCDEVGHIJKLMNOPQRSTUVWXYZ)
+     *          = CT_SPECIAL    : Miscellaneous characters (~!@#$%^&*()_+`-={}[]|\:;"'<>,.?/)
+     *          = CT_INT        : Numbers (positive integers: 0123456789)
+     *          = CT_MATH       : Mathematical characters (!%^*-+=/)
+     *          = CT_LOGIC      : Logical operator characters (!&|)
+     *      - int range:
+     *          =   0: standard starts_with operation
+     *          >=  1: first (x) characters
+     * */
+    static bool starts_with(const std::string& str, const CharType& chartype, int range) {
+        bool single_char = (range == 0);
+        bool flag = true;
+        for (char charx : str) {
+            if (chartype == CT_ALPHA && !starts_with_any_of(std::to_string(charx), "abcdefghijklmnopqrstuvwxyzABCDEVGHIJKLMNOPQRSTUVWXYZ")) {
+                return false;
+            } else if (chartype == CT_MISC && !starts_with_any_of(std::to_string(charx), "~!@#$%^&*()_+`-={}[]|\\:;\"'<>,.?/")) {
+                return false;
+            } else if (chartype == CT_INT && !starts_with_any_of(std::to_string(charx), "0123456789")) {
+                return false;
+            } else if (chartype == CT_MATH && !(starts_with_any_of(std::to_string(charx), "0123456789") || starts_with_any_of(std::to_string(charx), "!%^*-+=/"))) {
+                return false;
+            } else if (chartype == CT_LOGIC && !(starts_with_any_of(std::to_string(charx), "0123456789") || starts_with_any_of(std::to_string(charx), "!&|"))) {
+                return false;
+            }
+
+            if (single_char) {
+                return true;
+            }
+
+            if (range > 0) {
+                range--;
+                if (range == 0) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+        return flag;
+    }
+
+    // check if a string starts with a given character
+    static bool starts_with(const std::string& str, const char& character) {
+        return str.starts_with(character);
+    }
+
+    // check if a string starts with a given array of doubles, size must be predetermined and specified
+    static bool starts_with(const std::string& str, const double doubles[], const int& size) {
+        for (int i=0; i<size; i++) {
+            if (str.starts_with(std::to_string(doubles[i]))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // check if a string starts with a given array of floats, size must be predetermined and specified
+    static bool starts_with(const std::string& str, const float floats[], const int& size) {
+        for (int i=0; i<size; i++) {
+            if (str.starts_with(std::to_string(floats[i]))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // check if a string starts with a given array of integers, size must be predetermined and specified
+    static bool starts_with(const std::string& str, const int ints[], const int& size) {
+        for (int i=0; i<size; i++) {
+            if (str.starts_with(std::to_string(ints[i]))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    // check if a string starts with a given array of characters, size must be predetermined and specified
+    static bool starts_with(const std::string& str, const char chars[], const int& size) {
+        for (int i=0; i<size; i++) {
+            if (str.starts_with(std::to_string(chars[i]))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // split a string by delimiter and return a vector of substrings
-    // won't bother adding documentation here because I copied this code lol
-    std::vector<std::string> split_str(const std::string &_str, const std::string &_delim) {
+    static std::vector<std::string> split_str(const std::string& str, const std::string& delim) {
         std::vector<std::string> res;
         std::string token;
-        for (int i = 0; i < _str.size(); i++) {
+        for (int i = 0; i < str.size(); i++) {
             bool flag = true;
-            for (int j = 0; j < _delim.size(); j++) {
-                if (_str[i + j] != _delim[j]) flag = false;
+            for (int j = 0; j < delim.size(); j++) {
+                if (str[i + j] != delim[j]) flag = false;
             }
             if (flag) {
                 if (!token.empty()) {
                     res.push_back(token);
                     token = "";
-                    i += (int) _delim.size() - 1;
+                    i += (int) delim.size() - 1;
                 }
             } else {
-                token += _str[i];
+                token += str[i];
             }
         }
         res.push_back(token);
@@ -33,55 +151,101 @@ namespace posh {
     }
 
     // turn a vector into a string
-    std::string vec_to_str(const std::vector<std::string> &vec) {
+    static std::string vec_to_str(std::vector<std::string> vec, bool brackets) {
         std::string result;
-        if (!vec.empty()) { // make sure the vector isn't empty
-            if (vec.size() > 1) { // check if it has more than 1 element
-                for (int i = 0; i < vec.size(); i++) {
-                    if (i == vec.size() - 1) // if it's the last element, end with a closing bracket instead of ", "
-                        result += vec[i] + "}";
-                    else if (i == 0)
-                        result += std::string("{") + vec[i] +
-                                  ", "; // if it's the first element, start with a starting bracket and end with ", "
-                    else
-                        result += vec[i] + ", "; // for every other item, end with ", "
+        if (brackets) {
+            if (!vec.empty()) {
+                if (vec.size() > 1) {
+                    for (int i = 0; i < vec.size(); i++) {
+                        if (i == vec.size() - 1)
+                            result += vec[i] + "}";
+                        else if (i == 0)
+                            result += std::string("{") + vec[i] + ", ";
+                        else
+                            result += vec[i] + ", ";
+                    }
+                } else {
+                    result += std::string("{") + vec[0] + "}";
                 }
-            } else { // if there is only one element, place it in between a pair of brackets
-                result += std::string("{") + vec[0] + "}";
+            } else {
+                result += "{}";
             }
-        } else { // if it's empty, return an empty pair of brackets
-            result += "{}";
+        } else {
+            if (!vec.empty()) {
+                if (vec.size() > 1) {
+                    for (int i=0; i<vec.size(); i++) {
+                        if (i == vec.size() - 1)
+                            result += vec[i];
+                        else
+                            result += vec[i] + " ";
+                    }
+                } else {
+                    result += vec[0];
+                }
+            } else {
+                result += "";
+            }
         }
 
         return result;
     }
 
     // print a vector
-    void print_vec(const std::vector<std::string> &vec) {
-        if (!vec.empty()) {
-            if (vec.size() > 1) {
-                for (int i = 0; i < vec.size(); i++) {
-                    if (i == vec.size() - 1)
-                        std::cout << vec[i] << "}" << std::endl;
-                    else if (i == 0)
-                        std::cout << "{" << vec[i] << ", ";
-                    else
-                        std::cout << vec[i] << ", ";
+    static void print_vec(std::vector<std::string>& vec, bool brackets, bool endl) {
+        if (brackets) {
+            if (!vec.empty()) {
+                if (vec.size() > 1) {
+                    for (int i = 0; i < vec.size(); i++) {
+                        if (i == vec.size() - 1) {
+                            std::cout << vec[i] << "}";
+                            if (endl)
+                                std::cout << std::endl;
+                        }
+
+                        else if (i == 0)
+                            std::cout << "{" << vec[i] << ", ";
+                        else
+                            std::cout << vec[i] << ", ";
+                    }
+                } else {
+                    std::cout << "{" << vec[0] << "}";
+                    if (endl)
+                        std::cout << std::endl;
                 }
             } else {
-                std::cout << "{" << vec[0] << "}" << std::endl;
+                std::cout << "{}";
+                if (endl)
+                    std::cout << std::endl;
             }
         } else {
-            std::cout << "{}" << std::endl;
+            if (!vec.empty()) {
+                if (vec.size() > 1) {
+                    for (int i = 0; i < vec.size(); i++) {
+                        if (i == vec.size() - 1) {
+                            std::cout << vec[i];
+                            if (endl)
+                                std::cout << std::endl;
+                        }
+                        else
+                            std::cout << vec[i] << " ";
+                    }
+                } else {
+                    std::cout << vec[0];
+                    if (endl)
+                        std::cout << std::endl;
+                }
+            } else {
+                std::cout << "";
+                if (endl)
+                    std::cout << std::endl;
+            }
         }
     }
 
     // return the uppercase version of a string
-    std::string to_upper(const std::string &_str) {
+    static std::string to_upper(const std::string& str) {
         std::string result;
-        // iterate through each character and if it's lowercase then apply the uppercase version
-        // to the result string, otherwise apply it anyway
-        for (char c: _str) {
+        for (char c : str) {
             switch (c) {
                 case 'a':
                     result += 'A';
@@ -169,11 +333,9 @@ namespace posh {
     }
 
     // return the lowercase version of a string
-    std::string to_lower(const std::string &_str) {
+    static std::string to_lower(const std::string& str) {
         std::string result;
-        // iterate through each character and if it's uppercase then apply the lowercase version
-        // to the result string, otherwise apply it anyway
-        for (char c: _str) {
+        for (char c : str) {
             switch (c) {
                 case 'A':
                     result += 'a';
@@ -259,4 +421,21 @@ namespace posh {
         }
         return result;
     }
+
+    // transform traditional char* argv[] into std::vector<std::string>, must provide argc
+    static std::vector<std::string> transform_argv(char* argv[], int& argc) {
+
+        std::vector<std::string> result;
+
+        if (argc == 1)
+            return result;
+
+        for (int i=0; i<argc; i++)
+            result.emplace_back(argv[i]);
+
+        return result;
+    }
+
+
 } // posh
+

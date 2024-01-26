@@ -169,7 +169,7 @@ namespace posh {
     // read the file and return a specific line
     std::string file_helper::read_line(const int &line) {
         std::vector<std::string> lines;
-        lines = this->read_all(this->path);
+        lines = posh::file_helper::read_all(this->path);
 
         for (int i = 0; i < (int) lines.size(); i++) {
             if (i == line)
@@ -256,7 +256,7 @@ namespace posh {
             file << line;
         }
 
-            // otherwise, add the content to a new line
+		// otherwise, add the content to a new line
         else {
             file << "\n" << line;
         }
@@ -286,7 +286,7 @@ namespace posh {
             if (i != (int) lines.size() - 1)
                 file << lines[i] << std::endl;
 
-                // otherwise don't end it
+			// otherwise don't end it
             else
                 file << lines[i];
         }
@@ -316,7 +316,7 @@ namespace posh {
             if (i != (int) lines.size() - 1)
                 file << lines[i] << std::endl;
 
-                // otherwise don't end it
+			// otherwise don't end it
             else
                 file << lines[i];
         }
@@ -346,7 +346,7 @@ namespace posh {
             if (i != (int) lines.size() - 1)
                 file << lines[i] << std::endl;
 
-                // otherwise don't end it
+			// otherwise don't end it
             else
                 file << lines[i];
         }
@@ -600,3 +600,8 @@ namespace posh {
         return file_helper(path);
     }
 }
+
+
+/*
+ * https://en.cppreference.com/w/cpp/filesystem/path/replace_extension
+ * */

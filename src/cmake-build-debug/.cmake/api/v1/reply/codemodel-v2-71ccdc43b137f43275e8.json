@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "posh::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-posh-Debug-6eb6cef5a0bb1b9b60da.json",
+					"jsonFile" : "target-posh-Debug-07c7955e9ddf441784fc.json",
 					"name" : "posh",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/itsrxmmy/posh/build",
+		"build" : "/home/itsrxmmy/posh/src/cmake-build-debug",
 		"source" : "/home/itsrxmmy/posh/src"
 	},
 	"version" : 
