@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="posh" type="XMakeRunConfiguration" factoryName="Start and Debug">
+    <option name="runTarget" value="posh" />
+    <option name="runArguments" value="" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

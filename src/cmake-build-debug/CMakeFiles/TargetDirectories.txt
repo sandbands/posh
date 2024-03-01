@@ -1,3 +1,0 @@
-/home/itsrxmmy/posh/src/cmake-build-debug/CMakeFiles/posh.dir
-/home/itsrxmmy/posh/src/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/itsrxmmy/posh/src/cmake-build-debug/CMakeFiles/rebuild_cache.dir
