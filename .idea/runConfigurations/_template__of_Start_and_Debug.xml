@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="true" type="XMakeRunConfiguration" factoryName="Start and Debug">
-    <option name="runTarget" value="posh" />
+    <option name="runTarget" value="default" />
     <option name="runArguments" value="" />
     <envs />
     <method v="2" />

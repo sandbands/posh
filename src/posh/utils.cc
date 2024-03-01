@@ -10,12 +10,12 @@
 
 namespace posh {
     // clear the screen
-    static void cls() {
+    void cls() {
         std::system("clear");
     }
 
     // iterate through each element within substr and check if str begins with it
-    static bool starts_with_any_of(const std::string& str, const std::string& substr) {
+    bool starts_with_any_of(const std::string& str, const std::string& substr) {
         for (char c : substr) {
             if (str.starts_with(std::to_string(c))) {
                 return true;
@@ -26,7 +26,7 @@ namespace posh {
     }
 
     // check if a string starts with a given substring
-    static bool starts_with(const std::string& str, const std::string& substr) {
+    bool starts_with(const std::string& str, const std::string& substr) {
         return str.starts_with(substr);
     }
 
@@ -46,7 +46,7 @@ namespace posh {
      *          =   0: standard starts_with operation
      *          >=  1: first (x) characters
      * */
-    static bool starts_with(const std::string& str, const CharType& chartype, int range) {
+    bool starts_with(const std::string& str, const CharType& chartype, int range) {
         bool single_char = (range == 0);
         bool flag = true;
         for (char charx : str) {
@@ -79,12 +79,12 @@ namespace posh {
     }
 
     // check if a string starts with a given character
-    static bool starts_with(const std::string& str, const char& character) {
+    bool starts_with(const std::string& str, const char& character) {
         return str.starts_with(character);
     }
 
     // check if a string starts with a given array of doubles, size must be predetermined and specified
-    static bool starts_with(const std::string& str, const double doubles[], const int& size) {
+    bool starts_with(const std::string& str, const double doubles[], const int& size) {
         for (int i=0; i<size; i++) {
             if (str.starts_with(std::to_string(doubles[i]))) {
                 return true;
@@ -95,7 +95,7 @@ namespace posh {
     }
 
     // check if a string starts with a given array of floats, size must be predetermined and specified
-    static bool starts_with(const std::string& str, const float floats[], const int& size) {
+    bool starts_with(const std::string& str, const float floats[], const int& size) {
         for (int i=0; i<size; i++) {
             if (str.starts_with(std::to_string(floats[i]))) {
                 return true;
@@ -106,7 +106,7 @@ namespace posh {
     }
 
     // check if a string starts with a given array of integers, size must be predetermined and specified
-    static bool starts_with(const std::string& str, const int ints[], const int& size) {
+    bool starts_with(const std::string& str, const int ints[], const int& size) {
         for (int i=0; i<size; i++) {
             if (str.starts_with(std::to_string(ints[i]))) {
                 return true;
@@ -117,7 +117,7 @@ namespace posh {
     }
 
     // check if a string starts with a given array of characters, size must be predetermined and specified
-    static bool starts_with(const std::string& str, const char chars[], const int& size) {
+    bool starts_with(const std::string& str, const char chars[], const int& size) {
         for (int i=0; i<size; i++) {
             if (str.starts_with(std::to_string(chars[i]))) {
                 return true;
@@ -128,7 +128,7 @@ namespace posh {
     }
 
     // split a string by delimiter and return a vector of substrings
-    static std::vector<std::string> split_str(const std::string& str, const std::string& delim) {
+    std::vector<std::string> split_str(const std::string& str, const std::string& delim) {
         std::vector<std::string> res;
         std::string token;
         for (int i = 0; i < str.size(); i++) {
@@ -151,7 +151,7 @@ namespace posh {
     }
 
     // turn a vector into a string
-    static std::string vec_to_str(std::vector<std::string> vec, bool brackets) {
+    std::string vec_to_str(std::vector<std::string> vec, bool brackets) {
         std::string result;
         if (brackets) {
             if (!vec.empty()) {
@@ -191,7 +191,7 @@ namespace posh {
     }
 
     // print a vector
-    static void print_vec(std::vector<std::string>& vec, bool brackets, bool endl) {
+    void print_vec(std::vector<std::string>& vec, bool brackets, bool endl) {
         if (brackets) {
             if (!vec.empty()) {
                 if (vec.size() > 1) {
@@ -243,7 +243,7 @@ namespace posh {
     }
 
     // return the uppercase version of a string
-    static std::string to_upper(const std::string& str) {
+    std::string to_upper(const std::string& str) {
         std::string result;
         for (char c : str) {
             switch (c) {
@@ -333,7 +333,7 @@ namespace posh {
     }
 
     // return the lowercase version of a string
-    static std::string to_lower(const std::string& str) {
+    std::string to_lower(const std::string& str) {
         std::string result;
         for (char c : str) {
             switch (c) {
@@ -423,7 +423,7 @@ namespace posh {
     }
 
     // transform traditional char* argv[] into std::vector<std::string>, must provide argc
-    static std::vector<std::string> transform_argv(char* argv[], int& argc) {
+    std::vector<std::string> transform_argv(char* argv[], int& argc) {
 
         std::vector<std::string> result;
 
