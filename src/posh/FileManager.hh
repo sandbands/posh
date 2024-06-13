@@ -1,29 +1,38 @@
-//
-// Created by Owner on 11/3/2023.
-//
+/**
+ * @file FileManager.hh
+ * @author your name (you@domain.com)
+ * @brief File Management
+ * @version 0.1
+ * @date 06/12/2024
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
 
-#ifndef POSH_FILE_HELPER_HH
-#define POSH_FILE_HELPER_HH
+#ifndef POSH_FILEMANAGER_HH
+#define POSH_FILEMANAGER_HH
 
 #include <string>
 #include <vector>
 
 
-namespace posh {
+namespace posh
+{
 
     /*
      * File Helper Class
      * Work with files with ease
      * Includes many functions
      */
-    class file_helper {
+    class FileManager
+	{
         private:
         // path to file
         std::string path;
 
         public:
         // constructor
-        explicit file_helper(std::string path);
+        explicit FileManager(std::string path);
 
         // get path
         const std::string &get_path();
@@ -38,10 +47,10 @@ namespace posh {
         static bool exists(const std::string &path);
 
         // create the file
-        file_helper &create();
+        FileManager &create();
 
         // create a file
-        static file_helper create(const std::string &path);
+        static FileManager create(const std::string &path);
 
         // delete the file
         bool remove();
@@ -74,28 +83,28 @@ namespace posh {
         static std::string read_line(const std::string &path, const int &line);
 
         // erase the file contents
-        file_helper &erase();
+        FileManager &erase();
 
         // erase a file's contents
-        static file_helper erase(const std::string &path);
+        static FileManager erase(const std::string &path);
 
         // write a line to the file
-        file_helper &write(const std::string &line);
+        FileManager &write(const std::string &line);
 
         // write a line to a file
-        static file_helper write(const std::string &path, const std::string &line);
+        static FileManager write(const std::string &path, const std::string &line);
 
         // write a line to the file, using the insertion operator
-        file_helper &operator<<(const std::string &line);
+        FileManager &operator<<(const std::string &line);
 
         // write lines to the file
-        file_helper &write(const std::vector<std::string> &lines);
+        FileManager &write(const std::vector<std::string> &lines);
 
         // write lines to a file
-        static file_helper write(const std::string &path, const std::vector<std::string> &lines);
+        static FileManager write(const std::string &path, const std::vector<std::string> &lines);
 
         // write lines to the file, using the insertion operator
-        file_helper &operator<<(const std::vector<std::string> &lines);
+        FileManager &operator<<(const std::vector<std::string> &lines);
 
         // check if the file is currently open
         bool is_open();
@@ -116,40 +125,40 @@ namespace posh {
         static bool rmdir(const std::string &path);
 
         // duplicate the file, returns the new file
-        file_helper duplicate();
+        FileManager duplicate();
 
         // duplicate a file, returns the new file
-        static file_helper duplicate(const std::string &path);
+        static FileManager duplicate(const std::string &path);
 
         // duplicate the file to another location, returns the new file
-        file_helper &duplicate_to(const std::string &path2);
+        FileManager &duplicate_to(const std::string &path2);
 
         // duplicate a file to another location, returns the new file
-        static file_helper duplicate_to(const std::string &path1, const std::string &path2);
+        static FileManager duplicate_to(const std::string &path1, const std::string &path2);
 
         // move the file to a new location
-        file_helper &move_to(const std::string &newPath);
+        FileManager &move_to(const std::string &newPath);
 
         // move a file to a new location
-        static file_helper move_to(const std::string &path1, const std::string &path2);
+        static FileManager move_to(const std::string &path1, const std::string &path2);
 
         // rename the file (not recommended for objects, use static method instead)
-        file_helper &rename(const std::string &new_name);
+        FileManager &rename(const std::string &new_name);
 
         // rename a file
-        static file_helper rename(const std::string &path, const std::string &new_name);
+        static FileManager rename(const std::string &path, const std::string &new_name);
 
         // rewrite the file with one string
-        file_helper &rewrite(const std::string &content);
+        FileManager &rewrite(const std::string &content);
 
         // rewrite a file with one string
-        static file_helper rewrite(const std::string &path, const std::string &content);
+        static FileManager rewrite(const std::string &path, const std::string &content);
 
         // rewrite a file with multiple lines
-        file_helper &rewrite(const std::vector<std::string> &lines);
+        FileManager &rewrite(const std::vector<std::string> &lines);
 
         // rewrite the file with multiple lines
-        static file_helper rewrite(const std::string &path, const std::vector<std::string> &lines);
+        static FileManager rewrite(const std::string &path, const std::vector<std::string> &lines);
 
         // check if the file or directory is empty
         bool is_empty();
@@ -164,40 +173,59 @@ namespace posh {
         static int lines(const std::string &path);
 
         // append content to the last line of the file
-        file_helper &append(const std::string &content);
+        FileManager &append(const std::string &content);
 
         // append content to the last line of a file
-        static file_helper append(const std::string &path, const std::string &content);
+        static FileManager append(const std::string &path, const std::string &content);
 
         // append content to the last line of the file
-        file_helper &operator+=(const std::string &content);
+        FileManager &operator+=(const std::string &content);
 
         // end line
-        file_helper &endl();
+        FileManager &endl();
 
         // flush
-        file_helper &flush();
+        FileManager &flush();
 
         // end line
-        static file_helper endl(const std::string &path);
+        static FileManager endl(const std::string &path);
 
         // flush
-        static file_helper flush(const std::string &path);
+        static FileManager flush(const std::string &path);
 
         // truncate the file
-        file_helper &trunc();
+        FileManager &trunc();
 
         // truncate a file
-        static file_helper trunc(const std::string &path);
+        static FileManager trunc(const std::string &path);
 
-			// General Unknown file_helper Exceptions
-		class unknown_exception : public std::exception {
+		// General Unknown FileManager Exceptions
+		class unknown_exception : public std::exception
+		{
 			[[nodiscard]] const char* what() const noexcept override;
 		};
 
-		// Thrown when a path is not found
-		class path_not_found_exception : public std::exception {
+		// Path Not Found Error: Thrown when a path is not found
+		class path_not_found_exception : public std::exception
+		{
 			[[nodiscard]] const char* what() const noexcept override;
+		};
+
+		class error : public std::exception
+		{
+			private:
+			const char *message;
+			
+			public:
+			error();
+
+			error(const char *message);
+
+			error(const std::string &message);
+
+			[[nodiscard]] const char *error::what() const noexcept;
+
+			[[nodiscard]] const char *FileManager::error::error::output() const noexcept;
 		};
     };
 
@@ -206,4 +234,4 @@ namespace posh {
 
 } // posh
 
-#endif //POSH_FILE_HELPER_HH
+#endif // POSH_FILEMANAGER_HH
