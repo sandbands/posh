@@ -24,30 +24,30 @@
 
 namespace posh
 {
-    // Thrown when a process, operation, or function, is terminated early
-    class early_termination_exception : public std::exception
+	// Thrown when a process, operation, or function, is terminated early
+	class early_termination_exception : public std::exception
 	{
-    	public:
-        [[nodiscard]] const char* what() const noexcept override;
-    };
+		public:
+		[[nodiscard]] const char* what() const noexcept override;
+	};
 
-    // CharTypes
-    typedef enum CharType
+	// CharTypes
+	typedef enum CharType
 	{
-        CT_ALPHA,       // Letters (abcdefghijklmnopqrstuvwxyzABCDEVGHIJKLMNOPQRSTUVWXYZ)
-        CT_MISC,        // Miscellaneous characters (~!@#$%^&*()_+`-={}[]|\:;"'<>,.?/)
-        CT_INT,         // Numbers (positive integers: 0123456789)
-        CT_MATH,        // Mathematical characters (!%^*-+=/)
-        CT_LOGIC,       // Logical operator characters (!&|)
-    } CharType;
+		CT_ALPHA,	   // Letters (abcdefghijklmnopqrstuvwxyzABCDEVGHIJKLMNOPQRSTUVWXYZ)
+		CT_MISC,		// Miscellaneous characters (~!@#$%^&*()_+`-={}[]|\:;"'<>,.?/)
+		CT_INT,		 // Numbers (positive integers: 0123456789)
+		CT_MATH,		// Mathematical characters (!%^*-+=/)
+		CT_LOGIC,	   // Logical operator characters (!&|)
+	} CharType;
 
-    // SizeTypes
-    typedef enum SizeType
+	// SizeTypes
+	typedef enum SizeType
 	{
-        ST_EMPTY,       // Empty, or Blank
-        ST_DYNAMIC,     // Size can change throughout the program
-        ST_STATIC       // Size must remain the same throughout the program
-    } SizeType;
+		ST_EMPTY,	   // Empty, or Blank
+		ST_DYNAMIC,	 // Size can change throughout the program
+		ST_STATIC	   // Size must remain the same throughout the program
+	} SizeType;
 }
 
 #endif // POSH_POSH_HH
