@@ -1,5 +1,5 @@
 /**
- * @file IOS.cc
+ * @file ios.hh
  * @author your name (you@domain.com)
  * @brief Input/Output Stream
  * @version 0.1
@@ -9,12 +9,13 @@
  * 
  */
 
-#include "IOS.hh"
+#ifndef POSH_IOS_HH
+#define POSH_IOS_HH
+
 
 namespace posh
 {
 
+} // posh 
 
-} // posh
-
-
+#endif /* POSH_IOS_HH */

@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 #include "posh/posh.hh"
-#include "posh/file_helper.hh"
+#include "posh/filemanager.hh"
 #include "posh/utils.cc"
 
 
@@ -28,7 +28,9 @@ int main() {
 	// - The string to check
 	// - The character type to check for
 	// - The number of characters to check for
-	posh::starts_with("abcdefg", posh::CT_ALPHA , 4);
+	if (posh::starts_with("abcdefg", posh::CT_ALPHA , 4)) std::cout << "true";
+	else std::cout << "false";
+	std::cout << std::endl;
 
 	// Return 0 to indicate successful execution of the program
 	return 0;

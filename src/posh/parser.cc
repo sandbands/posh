@@ -1,5 +1,5 @@
 /**
- * @file Parser.cc
+ * @file parser.cc
  * @author your name (you@domain.com)
  * @brief Parser Functionality
  * @version 0.1
@@ -9,14 +9,14 @@
  * 
  */
 
-#include "Parser.hh"
+#include "parser.hh"
 
 namespace posh
 {
 	
 
-// Constructor for the Parser class
-	Parser::Parser(const int argc, const char *argv[])
+// Constructor for the parser class
+	parser::parser(const int argc, const char *argv[])
 	{
 		// Iterate over the command-line arguments
 		for (int i = 1; i < argc; i++)
@@ -66,7 +66,7 @@ namespace posh
 	}
 
 // Returns the argument at the specified index
-	std::string Parser::get_arg(const int index)
+	std::string parser::get_arg(const int index)
 	{
 		// Check if the index is within the bounds of the args vector
 		if (index >= 0 && index < this->args.size())
@@ -80,7 +80,7 @@ namespace posh
 	}
 
 	// Returns the number of arguments stored in the args vector
-	int Parser::get_arg_count()
+	int parser::get_arg_count()
 	{
 		// Return the size of the args vector
 		return this->args.size();
@@ -88,7 +88,7 @@ namespace posh
 
 
 	// Checks if a flag exists in the flags map
-	bool Parser::has_flag(const std::string &flag)
+	bool parser::has_flag(const std::string &flag)
 	{
 		// Return true if the flag is found in the flags map, otherwise false
 		return this->flags.find(flag) != this->flags.end();
@@ -96,7 +96,7 @@ namespace posh
 
 
 	// Returns the value of a flag if it exists, otherwise returns an empty string
-	std::string Parser::get_flag_value(const std::string &flag)
+	std::string parser::get_flag_value(const std::string &flag)
 	{
 		// Check if the flag exists in the flags map
 		if (this->has_flag(flag))
@@ -112,8 +112,8 @@ namespace posh
 		}
 	}
 
-	// Declares an external variable named CommandEngine of type Parser*
-	extern Parser *CommandEngine;
+	// Declares an external variable named CommandEngine of type parser*
+	extern parser *CommandEngine;
 
 
 } // posh

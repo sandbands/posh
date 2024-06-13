@@ -1,5 +1,5 @@
 /**
- * @file Parser.hh
+ * @file parser.hh
  * @author your name (you@domain.com)
  * @brief Parser Functionality
  * @version 0.1
@@ -19,7 +19,7 @@
 namespace posh
 {
 
-	class Parser
+	class parser
 	{
 		private:
 		// Vector to store the command line arguments
@@ -30,8 +30,8 @@ namespace posh
 		
 		
 		public:
-		// Constructor that initializes the Parser object with the command line arguments
-		Parser(const int argc, const char *argv[]);
+		// Constructor that initializes the parser object with the command line arguments
+		parser(const int argc, const char *argv[]);
 
 		// Returns the command line argument at the specified index
 		std::string get_arg(const int index);
@@ -47,8 +47,8 @@ namespace posh
 		std::string get_flag_value(const std::string &flag);
 	};
 
-	// Declares an external variable named CommandEngine of type Parser*
-	extern Parser *CommandEngine;
+	// Declares an external variable named CommandEngine of type parser*
+	extern parser *CommandEngine;
 
 } // posh
 
