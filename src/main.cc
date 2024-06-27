@@ -17,7 +17,8 @@
 + * function starts_with checks if the string "abcdefg" starts with
 + * the character 'a' and returns 0 if true.
 + */
-int main() {
+int main()
+{
 	// Print "hello world" to the standard output
 	std::cout << "hello world" << std::endl;
 
@@ -34,6 +35,6 @@ int main() {
 
 	// Return 0 to indicate successful execution of the program
 	return 0;
-}
 
+}
 

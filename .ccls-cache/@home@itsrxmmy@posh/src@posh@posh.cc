@@ -19,15 +19,12 @@ namespace posh
 		return "\n[posh::*::early_termination_exception] Process/Operation Terminated Early.\n";
 	}
 
-	/* 
-     * CharTypes
-	 * typedef enum CharType { } CharType; 
-     * */
+	/* // CharTypes
+	 * typedef enum CharType { } CharType; */
 
-	/*
-     * SizeTypes
-	 * typedef enum SizeType { } SizeType;
-     * */
+	/* // SizeTypes
+	 * typedef enum SizeType { } SizeType; */
+
 
 
 }
